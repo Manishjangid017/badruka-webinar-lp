@@ -20,6 +20,7 @@
   /* Container widths (content area only, padding added separately) */
   --container-1: 1152px; /* primary layout width  */
   --container-2: 960px; /* narrower content width */
+  --container-2: 1280px; /* narrower content width */
 }
 
 /*==================================================
@@ -94,6 +95,15 @@ p {
 .common-container-1 {
   width: 100%;
   max-width: calc(var(--container-1) + 32px); /* 1184px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.common-container-2 {
+  width: 100%;
+  max-width: calc(var(--container-2) + 32px); /* 1184px */
   margin-left: auto;
   margin-right: auto;
   padding-left: 16px;
@@ -2416,7 +2426,7 @@ IMAGE POSITION
 
 .outcomes-section {
   width: 100%;
-  padding: 70px 0 80px;
+  padding: 96px 0 96px;
   background: #faf8f5;
   overflow: hidden;
 }
