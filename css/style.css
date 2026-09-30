@@ -290,7 +290,7 @@ CARD
   position: relative;
   border-radius: 28px;
   overflow: hidden;
-  min-height: 430px;
+  min-height: 330px;
   display: flex;
   align-items: center;
   transition: 0.45s ease;
@@ -2835,7 +2835,7 @@ IMAGE POSITION
   .speaker-content {
     flex: none;
     max-width: 100%;
-    padding: 40px 0 24px;
+    padding: 40px 0 34px;
     text-align: center;
   }
 
