@@ -28,42 +28,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css?v=3" />
 
-    <script defer>
-      // Load scripts on interaction
-      function load3rdPartyScripts() {
-        if (window._scriptsLoaded) return;
-        window._scriptsLoaded = true;
-
-        // GTM
-        const gtm = document.createElement('script');
-        gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KKS7F6DF';
-        gtm.async = true;
-        document.body.appendChild(gtm);
-
-        // NoPaperForms
-        const npf = document.createElement('script');
-        npf.src = 'https://widgets.in6.nopaperforms.com/emwgts.js';
-        npf.async = true;
-        document.body.appendChild(npf);
-
-        // Show form wrapper after scripts
-        const form = document.getElementById('slideForm');
-        if (form) form.style.display = 'block';
-      }
-
-      ['scroll', 'click', 'touchstart'].forEach((ev) => {
-        window.addEventListener(ev, load3rdPartyScripts, { once: true, passive: true });
-      });
-
-      // Show download button after 5% scroll
-      window.addEventListener('scroll', () => {
-        const btn = document.getElementById('downloadBrochure');
-        if (!btn) return;
-        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        btn.style.display = scrolled > 5 ? 'block' : 'none';
-      });
-    </script>
-
     <!--DTC-->
     <script type="text/javascript">
       var npf_d = 'https://application.bsm.edu.in';
@@ -432,7 +396,6 @@
     </section>
     <section class="outcomes-section">
       <div class="common-container-2">
-        <!-- Heading -->
         <div class="outcomes-head text-center">
           <span class="outcomes-eyebrow">Executive Masterclass Outcomes</span>
           <h2 class="outcomes-title">What You'll <span>Walk Away</span> With</h2>
@@ -662,5 +625,60 @@
       updateCountdown();
       setInterval(updateCountdown, 1000);
     })();
+  </script>
+
+  <script defer>
+    // Load scripts on interaction
+    function load3rdPartyScripts() {
+      if (window._scriptsLoaded) return;
+      window._scriptsLoaded = true;
+
+      // GTM
+      const gtm = document.createElement('script');
+      gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-KKS7F6DF';
+      gtm.async = true;
+      document.body.appendChild(gtm);
+
+      // NoPaperForms
+      const npf = document.createElement('script');
+      npf.src = 'https://widgets.in6.nopaperforms.com/emwgts.js';
+      npf.async = true;
+      document.body.appendChild(npf);
+
+      // Show form wrapper after scripts
+      const form = document.getElementById('slideForm');
+      if (form) form.style.display = 'block';
+    }
+
+    ['scroll', 'click', 'touchstart'].forEach((ev) => {
+      window.addEventListener(ev, load3rdPartyScripts, { once: true, passive: true });
+    });
+
+    // Show download button after 5% scroll
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('downloadBrochure');
+      if (!btn) return;
+      const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      btn.style.display = scrolled > 5 ? 'block' : 'none';
+    });
+
+    // Show/hide countdown strip based on scroll position
+    document.addEventListener('DOMContentLoaded', function () {
+      const strip = document.getElementById('masterclassCountdown');
+      if (!strip) return;
+      const hero = document.querySelector('.webinar-hero');
+
+      function updateStrip() {
+        const heroBottom = hero ? hero.getBoundingClientRect().bottom : 100;
+        if (heroBottom <= 1000) {
+          strip.classList.add('strip-visible');
+        } else {
+          strip.classList.remove('strip-visible');
+        }
+      }
+
+      window.addEventListener('scroll', updateStrip, { passive: true });
+      updateStrip();
+    });
   </script>
 </html>

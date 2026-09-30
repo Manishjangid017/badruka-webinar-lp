@@ -758,10 +758,16 @@ IMAGE POSITION
 .masterclass-countdown-strip {
   width: 100%;
   background: #063574;
-  position: sticky;
-  top: 0;
+  position: fixed;
+  bottom: 0;
   z-index: 9999;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.masterclass-countdown-strip.strip-visible {
+  transform: translateY(0);
 }
 
 /* Main wrapper */
@@ -969,135 +975,6 @@ IMAGE POSITION
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
 }
 
-/*==================================================
-  TABLET
-==================================================*/
-
-@media (max-width: 991px) {
-  .countdown-inner {
-    gap: 25px;
-  }
-
-  .countdown-message {
-    min-width: 300px;
-  }
-
-  .countdown-message p {
-    font-size: 11px;
-  }
-
-  .countdown-title {
-    margin-left: 85px;
-  }
-
-  .countdown-box {
-    width: 28px;
-    height: 30px;
-    font-size: 15px;
-  }
-
-  .countdown-right {
-    gap: 6px;
-  }
-
-  .countdown-register-btn {
-    padding: 0 11px;
-    font-size: 7px;
-  }
-}
-
-/*==================================================
-  MOBILE
-==================================================*/
-
-@media (max-width: 767px) {
-  .masterclass-countdown-strip {
-    position: sticky;
-    top: 0;
-  }
-
-  .countdown-inner {
-    min-height: auto;
-
-    padding-top: 9px;
-    padding-bottom: 9px;
-
-    flex-direction: column;
-
-    gap: 9px;
-  }
-
-  /* LEFT CONTENT */
-  .countdown-message {
-    min-width: 0;
-    width: 100%;
-
-    align-items: center;
-    text-align: center;
-  }
-
-  .countdown-live-label {
-    font-size: 8px;
-  }
-
-  .countdown-title {
-    margin: 3px 0 0;
-    font-size: 8px;
-  }
-
-  .countdown-message p {
-    font-size: 11px;
-    line-height: 1.4;
-  }
-
-  .countdown-starts {
-    display: none;
-  }
-
-  /* COUNTDOWN */
-  .countdown-right {
-    width: 100%;
-
-    justify-content: center;
-
-    gap: 6px;
-  }
-
-  .countdown-box {
-    width: 38px;
-    height: 35px;
-
-    font-size: 16px;
-
-    border-radius: 4px;
-  }
-
-  .countdown-box-wrap small {
-    font-size: 6px;
-    margin-top: 3px;
-  }
-
-  .countdown-colon {
-    font-size: 15px;
-    margin-top: -12px;
-  }
-
-  /* REGISTER BUTTON */
-  .countdown-register-btn {
-    height: 35px;
-
-    padding: 0 12px;
-
-    font-size: 8px;
-
-    border-radius: 4px;
-  }
-}
-
-/*==================================================
-  SMALL MOBILE
-==================================================*/
-
 @media (max-width: 400px) {
   .countdown-inner {
     padding-left: 8px;
@@ -1125,256 +1002,6 @@ IMAGE POSITION
   .countdown-register-btn {
     padding: 0 9px;
     font-size: 7px;
-  }
-}
-
-/*==================================================
-  RESPONSIVE
-==================================================*/
-
-/* Container widths are handled via .container, .common-container-1, .common-container-2 above */
-
-@media (max-width: 991px) {
-  .top-bar {
-    display: none;
-  }
-
-  /* PGDM Cards */
-  .pgdm-card {
-    min-height: auto;
-    overflow: hidden;
-    flex-direction: column;
-  }
-
-  .pgdm-content {
-    width: 100% !important;
-    padding: 45px;
-  }
-
-  .pgdm-student {
-    position: relative;
-    width: 100% !important;
-    right: auto;
-    bottom: auto;
-    margin-top: 20px;
-    justify-content: center;
-  }
-
-  .pgdm-student img {
-    width: 70%;
-  }
-
-  .pgdm-card:hover .pgdm-student img {
-    transform: scale(1.04);
-  }
-
-  /* Footer */
-  .footer-bsm {
-    padding: 60px 0 28px;
-  }
-
-  .footer-bsm-left {
-    text-align: center;
-  }
-
-  .footer-bsm-left h2 {
-    font-size: 38px;
-  }
-
-  .footer-bsm-left p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .footer-bsm-action {
-    justify-content: center;
-  }
-
-  .footer-bsm-address {
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .footer-bsm-divider {
-    margin: 40px 0 25px;
-  }
-
-  .footer-bsm-copy,
-  .footer-bsm-credit {
-    text-align: center;
-  }
-}
-
-@media (max-width: 767px) {
-  /* PGDM Audience */
-  .pgdm-audience-section {
-    padding: 70px 0;
-  }
-
-  .pgdm-title {
-    font-size: 34px;
-  }
-
-  .pgdm-subtitle {
-    font-size: 15px;
-  }
-
-  .pgdm-content {
-    padding: 30px;
-    text-align: center;
-  }
-
-  .pgdm-content h3 {
-    font-size: 32px;
-  }
-
-  .pgdm-content h3 span {
-    font-size: 24px;
-  }
-
-  .pgdm-content h4 {
-    font-size: 28px;
-  }
-
-  .pgdm-highlight {
-    justify-content: center;
-  }
-
-  .pgdm-btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .pgdm-card ul {
-    text-align: left;
-    display: inline-block;
-  }
-
-  .pgdm-student img {
-    width: 90%;
-  }
-
-  /* Footer */
-  .footer-bsm {
-    padding: 50px 0 24px;
-  }
-
-  .footer-bsm-left h2 {
-    font-size: 30px;
-  }
-
-  .footer-bsm-left p {
-    font-size: 15px;
-  }
-
-  .footer-bsm-action {
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .footer-bsm-logo {
-    width: 170px;
-  }
-
-  .footer-bsm-logo img {
-    height: 34px;
-  }
-
-  .footer-bsm-btn {
-    width: 170px;
-    justify-content: center;
-    padding: 13px 18px;
-    font-size: 14px;
-  }
-
-  .footer-bsm-address span {
-    font-size: 17px;
-  }
-
-  .footer-bsm-address p {
-    font-size: 14px;
-  }
-
-  .footer-bsm-divider {
-    margin: 35px 0 20px;
-  }
-
-  .footer-bsm-copy,
-  .footer-bsm-credit {
-    font-size: 13px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 576px) {
-  /* PGDM */
-  .pgdm-title {
-    font-size: 28px;
-  }
-
-  .pgdm-content {
-    padding: 24px;
-  }
-
-  .pgdm-content h3 {
-    font-size: 28px;
-  }
-
-  .pgdm-content h4 {
-    font-size: 24px;
-  }
-
-  .pgdm-content p {
-    font-size: 14px;
-  }
-
-  .pgdm-btn {
-    padding: 14px 20px;
-  }
-
-  .pgdm-student img {
-    width: 100%;
-  }
-}
-
-@media (max-width: 420px) {
-  /* PGDM */
-  .pgdm-content h3 {
-    font-size: 24px;
-  }
-
-  .pgdm-content h4 {
-    font-size: 20px;
-  }
-
-  /* Footer */
-  .footer-bsm-left h2 {
-    font-size: 26px;
-    line-height: 1.25;
-  }
-
-  .footer-bsm-left p {
-    font-size: 14px;
-  }
-
-  .footer-bsm-logo {
-    width: 160px;
-  }
-
-  .footer-bsm-btn {
-    width: 160px;
-    font-size: 13px;
-    padding: 12px 16px;
-  }
-
-  .footer-bsm-address p {
-    font-size: 13px;
-  }
-
-  .footer-bsm-copy,
-  .footer-bsm-credit {
-    font-size: 12px;
   }
 }
 
@@ -1788,133 +1415,36 @@ IMAGE POSITION
   color: #888;
 }
 
-/*==================================================
-  RESPONSIVE — WEBINAR HERO
-==================================================*/
-
-@media (max-width: 1199px) {
-  .webinar-heading {
-    font-size: 42px;
+@media (max-width: 576px) {
+  /* PGDM */
+  .pgdm-title {
+    font-size: 28px;
   }
 
-  .webinar-speaker-img {
-    width: 280px;
-  }
-}
-
-@media (max-width: 991px) {
-  /* hero — already stacked, just keep card in-flow */
-  .webinar-hero-container {
-    padding-top: 48px;
-    min-height: auto;
-    text-align: center;
+  .pgdm-content {
+    padding: 24px;
   }
 
-  .webinar-hero-content {
-    max-width: 100%;
-    padding-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .pgdm-content h3 {
+    font-size: 28px;
   }
 
-  .webinar-desc {
-    max-width: 600px;
+  .pgdm-content h4 {
+    font-size: 24px;
   }
 
-  .webinar-speaker {
-    margin-top: 32px;
-    width: 100%;
-    align-items: center;
-    padding-bottom: 0;
-  }
-
-  .webinar-speaker-img {
-    width: 260px;
-  }
-
-  /* pull card out of absolute so it flows below image */
-  .webinar-speaker-card {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin-top: 16px;
-    width: 100%;
-    max-width: 400px;
-    white-space: normal;
-  }
-
-  /* strip stays 3-col on tablet */
-  .webinar-strip-item {
-    padding: 12px 14px;
-    font-size: 13px;
-  }
-
-  .header-aacsb-tag {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 767px) {
-  .site-header {
-    padding: 8px 0;
-  }
-
-  .header-logo-badruka img {
-    height: 36px;
-  }
-
-  .header-logo-member img {
-    height: 28px;
-  }
-
-  .header-logo-divider {
-    margin: 0 10px;
-  }
-
-  .webinar-heading {
-    font-size: 34px;
-    letter-spacing: -0.3px;
-  }
-
-  .webinar-desc {
+  .pgdm-content p {
     font-size: 14px;
   }
 
-  .webinar-tag {
-    font-size: 11px;
+  .pgdm-btn {
+    padding: 14px 20px;
   }
 
-  .webinar-speaker-img {
-    width: 220px;
-  }
-
-  /* strip: 1 column on mobile (grid-template-columns, not flex) */
-  .webinar-strip-inner {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .webinar-strip-item {
-    justify-content: flex-start !important;
-    padding: 12px 16px;
-  }
-
-  .webinar-strip-divider {
-    display: none;
-  }
-
-  .webinar-cta-btn {
-    padding: 14px 30px;
-    font-size: 15px;
+  .pgdm-student img {
     width: 100%;
-    max-width: 320px;
-    justify-content: center;
   }
-}
 
-@media (max-width: 576px) {
   .header-live-label {
     display: none !important;
   }
@@ -2598,12 +2128,15 @@ IMAGE POSITION
   transform: translateX(4px);
 }
 
-/*==================================================
-  RESPONSIVE
-==================================================*/
-
 /* Small laptop */
 @media (max-width: 1199px) {
+  .webinar-heading {
+    font-size: 42px;
+  }
+
+  .webinar-speaker-img {
+    width: 280px;
+  }
   .outcomes-grid {
     --gap: 18px;
   }
@@ -2624,6 +2157,36 @@ IMAGE POSITION
 
 /* Tablet: 3 + 2 (centered) */
 @media (max-width: 991px) {
+  .countdown-inner {
+    gap: 25px;
+  }
+
+  .countdown-message {
+    min-width: 300px;
+  }
+
+  .countdown-message p {
+    font-size: 11px;
+  }
+
+  .countdown-title {
+    margin-left: 85px;
+  }
+
+  .countdown-box {
+    width: 28px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+  .countdown-right {
+    gap: 6px;
+  }
+
+  .countdown-register-btn {
+    padding: 0 11px;
+    font-size: 7px;
+  }
   .outcomes-section {
     padding: 60px 0;
   }
@@ -2640,6 +2203,125 @@ IMAGE POSITION
 
   .outcome-card {
     margin: -60px 16px 0;
+  }
+  /* hero — already stacked, just keep card in-flow */
+  .webinar-hero-container {
+    padding-top: 48px;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .webinar-hero-content {
+    max-width: 100%;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .webinar-desc {
+    max-width: 600px;
+  }
+
+  .webinar-speaker {
+    margin-top: 32px;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 0;
+  }
+
+  .webinar-speaker-img {
+    width: 260px;
+  }
+
+  /* pull card out of absolute so it flows below image */
+  .webinar-speaker-card {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 400px;
+    white-space: normal;
+  }
+
+  /* strip stays 3-col on tablet */
+  .webinar-strip-item {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .header-aacsb-tag {
+    font-size: 12px;
+  }
+  .top-bar {
+    display: none;
+  }
+
+  /* PGDM Cards */
+  .pgdm-card {
+    min-height: auto;
+    overflow: hidden;
+    flex-direction: column;
+  }
+
+  .pgdm-content {
+    width: 100% !important;
+    padding: 45px;
+  }
+
+  .pgdm-student {
+    position: relative;
+    width: 100% !important;
+    right: auto;
+    bottom: auto;
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .pgdm-student img {
+    width: 70%;
+  }
+
+  .pgdm-card:hover .pgdm-student img {
+    transform: scale(1.04);
+  }
+
+  /* Footer */
+  .footer-bsm {
+    padding: 60px 0 28px;
+  }
+
+  .footer-bsm-left {
+    text-align: center;
+  }
+
+  .footer-bsm-left h2 {
+    font-size: 38px;
+  }
+
+  .footer-bsm-left p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-bsm-action {
+    justify-content: center;
+  }
+
+  .footer-bsm-address {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .footer-bsm-divider {
+    margin: 40px 0 25px;
+  }
+
+  .footer-bsm-copy,
+  .footer-bsm-credit {
+    text-align: center;
   }
 }
 
@@ -2676,6 +2358,243 @@ IMAGE POSITION
     width: 100%;
     max-width: 320px;
   }
+
+  .masterclass-countdown-strip {
+    position: sticky;
+    top: 0;
+  }
+
+  .countdown-inner {
+    min-height: auto;
+
+    padding-top: 9px;
+    padding-bottom: 9px;
+
+    flex-direction: column;
+
+    gap: 9px;
+  }
+
+  /* LEFT CONTENT */
+  .countdown-message {
+    min-width: 0;
+    width: 100%;
+
+    align-items: center;
+    text-align: center;
+  }
+
+  .countdown-live-label {
+    font-size: 8px;
+  }
+
+  .countdown-title {
+    margin: 3px 0 0;
+    font-size: 8px;
+  }
+
+  .countdown-message p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .countdown-starts {
+    display: none;
+  }
+
+  /* COUNTDOWN */
+  .countdown-right {
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 6px;
+  }
+
+  .countdown-box {
+    width: 38px;
+    height: 35px;
+
+    font-size: 16px;
+
+    border-radius: 4px;
+  }
+
+  .countdown-box-wrap small {
+    font-size: 6px;
+    margin-top: 3px;
+  }
+
+  .countdown-colon {
+    font-size: 15px;
+    margin-top: -12px;
+  }
+
+  /* REGISTER BUTTON */
+  .countdown-register-btn {
+    height: 35px;
+
+    padding: 0 12px;
+
+    font-size: 8px;
+
+    border-radius: 4px;
+  }
+
+  .site-header {
+    padding: 8px 0;
+  }
+
+  .header-logo-badruka img {
+    height: 36px;
+  }
+
+  .header-logo-member img {
+    height: 28px;
+  }
+
+  .header-logo-divider {
+    margin: 0 10px;
+  }
+
+  .webinar-heading {
+    font-size: 34px;
+    letter-spacing: -0.3px;
+  }
+
+  .webinar-desc {
+    font-size: 14px;
+  }
+
+  .webinar-tag {
+    font-size: 11px;
+  }
+
+  .webinar-speaker-img {
+    width: 220px;
+  }
+
+  /* strip: 1 column on mobile (grid-template-columns, not flex) */
+  .webinar-strip-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .webinar-strip-item {
+    justify-content: flex-start !important;
+    padding: 12px 16px;
+  }
+
+  .webinar-strip-divider {
+    display: none;
+  }
+
+  .webinar-cta-btn {
+    padding: 14px 30px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+  /* PGDM Audience */
+  .pgdm-audience-section {
+    padding: 70px 0;
+  }
+
+  .pgdm-title {
+    font-size: 34px;
+  }
+
+  .pgdm-subtitle {
+    font-size: 15px;
+  }
+
+  .pgdm-content {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .pgdm-content h3 {
+    font-size: 32px;
+  }
+
+  .pgdm-content h3 span {
+    font-size: 24px;
+  }
+
+  .pgdm-content h4 {
+    font-size: 28px;
+  }
+
+  .pgdm-highlight {
+    justify-content: center;
+  }
+
+  .pgdm-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pgdm-card ul {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .pgdm-student img {
+    width: 90%;
+  }
+
+  /* Footer */
+  .footer-bsm {
+    padding: 50px 0 24px;
+  }
+
+  .footer-bsm-left h2 {
+    font-size: 30px;
+  }
+
+  .footer-bsm-left p {
+    font-size: 15px;
+  }
+
+  .footer-bsm-action {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .footer-bsm-logo {
+    width: 170px;
+  }
+
+  .footer-bsm-logo img {
+    height: 34px;
+  }
+
+  .footer-bsm-btn {
+    width: 170px;
+    justify-content: center;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
+
+  .footer-bsm-address span {
+    font-size: 17px;
+  }
+
+  .footer-bsm-address p {
+    font-size: 14px;
+  }
+
+  .footer-bsm-divider {
+    margin: 35px 0 20px;
+  }
+
+  .footer-bsm-copy,
+  .footer-bsm-credit {
+    font-size: 13px;
+    text-align: center;
+  }
 }
 
 /* Mobile: 1 col */
@@ -2710,5 +2629,45 @@ IMAGE POSITION
   .outcome-card {
     min-height: 0;
     margin: -55px 16px 0;
+  }
+}
+
+@media (max-width: 420px) {
+  /* PGDM */
+  .pgdm-content h3 {
+    font-size: 24px;
+  }
+
+  .pgdm-content h4 {
+    font-size: 20px;
+  }
+
+  /* Footer */
+  .footer-bsm-left h2 {
+    font-size: 26px;
+    line-height: 1.25;
+  }
+
+  .footer-bsm-left p {
+    font-size: 14px;
+  }
+
+  .footer-bsm-logo {
+    width: 160px;
+  }
+
+  .footer-bsm-btn {
+    width: 160px;
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+
+  .footer-bsm-address p {
+    font-size: 13px;
+  }
+
+  .footer-bsm-copy,
+  .footer-bsm-credit {
+    font-size: 12px;
   }
 }
