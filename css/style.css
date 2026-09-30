@@ -2127,6 +2127,211 @@ IMAGE POSITION
   transform: translateX(4px);
 }
 
+/*==================================================
+  MEET YOUR SPEAKER
+==================================================*/
+
+.speaker-section {
+  width: 100%;
+  background: #f5ede8; /* image ke beige se match karta hai, zarurat ho to color change karo */
+  overflow: hidden;
+}
+
+.speaker-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.speaker-content {
+  flex: 0 0 34%;
+  max-width: 34%;
+  padding: 40px 0;
+}
+
+.speaker-heading {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  color: #ff5200;
+  margin-bottom: 10px;
+}
+
+.speaker-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1d293d;
+  margin: 0;
+}
+
+.speaker-line {
+  display: block;
+  width: 110px;
+  height: 2px;
+  margin-top: 18px;
+  background: linear-gradient(90deg, #e0435b 0%, rgba(224, 67, 91, 0) 100%);
+}
+
+/* Image: jo shape wali image upload karoge wahi dikhegi, koi extra clipping nahi */
+.speaker-image {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.speaker-image img {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  object-fit: contain;
+}
+
+/*==================================================
+  WHO SHOULD ATTEND
+==================================================*/
+
+.audience-section {
+  width: 100%;
+  padding: 80px 0 90px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.audience-sub {
+  margin: 22px auto 0;
+  max-width: 560px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #62748e;
+}
+
+.audience-section .outcomes-line {
+  margin-top: 18px;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 50px;
+}
+
+.audience-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 237px;
+  padding: 22px 22px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.audience-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.audience-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: #0f172b;
+  margin: 0 0 8px;
+  transition: color 0.35s ease;
+}
+
+.audience-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #1d293d;
+  margin: 0;
+  transition: color 0.35s ease;
+}
+
+.audience-card-foot {
+  padding-top: 12px;
+  border-top: 1px solid rgba(15, 23, 43, 0.08);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #62748e;
+  transition:
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Default colours */
+.audience-card-yellow {
+  background: #fffaf0;
+  border-color: #fbeeb3;
+}
+
+.audience-card-pink {
+  background: #fef1f1;
+  border-color: #fbd5d5;
+}
+
+.audience-card-cream {
+  background: #fefbe8;
+  border-color: #fbeeb3;
+}
+
+.audience-card-blue {
+  background: #012a6b;
+  border-color: #012a6b;
+}
+
+.audience-card-blue h3,
+.audience-card-blue p {
+  color: #ffffff;
+}
+
+.audience-card-blue .audience-card-foot {
+  color: #bedbff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Hover: har card blue bg + white text */
+.audience-card:hover {
+  background: #012a6b;
+  border-color: #012a6b;
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(1, 42, 107, 0.28);
+}
+
+.audience-card:hover h3,
+.audience-card:hover p {
+  color: #ffffff;
+}
+
+.audience-card:hover .audience-card-foot {
+  color: #bedbff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/*==================================================
+  RESPONSIVE
+==================================================*/
+
 /* Small laptop */
 @media (max-width: 1199px) {
   .webinar-heading {
@@ -2151,6 +2356,19 @@ IMAGE POSITION
 
   .outcome-card p {
     font-size: 12.5px;
+  }
+
+  .speaker-content {
+    flex: 0 0 38%;
+    max-width: 38%;
+  }
+
+  .audience-grid {
+    gap: 16px;
+  }
+
+  .audience-card {
+    padding: 20px 16px 12px;
   }
 }
 
@@ -2320,6 +2538,24 @@ IMAGE POSITION
   .footer-bsm-copy,
   .footer-bsm-credit {
     text-align: center;
+  }
+
+  .speaker-heading {
+    font-size: 28px;
+  }
+
+  .speaker-text {
+    font-size: 15px;
+  }
+
+  .audience-section {
+    padding: 60px 0;
+  }
+
+  .audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 40px;
   }
 }
 
@@ -2589,6 +2825,32 @@ IMAGE POSITION
     font-size: 13px;
     text-align: center;
   }
+
+  .speaker-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .speaker-content {
+    flex: none;
+    max-width: 100%;
+    padding: 40px 0 24px;
+    text-align: center;
+  }
+
+  .speaker-line {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .speaker-image {
+    justify-content: center;
+  }
+
+  .speaker-image img {
+    max-width: 100%;
+  }
 }
 
 /* Mobile: 1 col */
@@ -2623,6 +2885,32 @@ IMAGE POSITION
   .outcome-card {
     min-height: 0;
     margin: -55px 16px 0;
+  }
+
+  .speaker-heading {
+    font-size: 26px;
+  }
+
+  .speaker-text {
+    font-size: 14px;
+  }
+
+  .audience-section {
+    padding: 45px 0;
+  }
+
+  .audience-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .audience-card {
+    min-height: 190px;
+  }
+
+  .audience-sub {
+    font-size: 13px;
   }
 }
 
