@@ -670,7 +670,9 @@
 
       function updateStrip() {
         const heroBottom = hero ? hero.getBoundingClientRect().bottom : 100;
-        if (heroBottom <= 1000) {
+        const atBottom = window.innerHeight + Math.round(window.scrollY) >= document.body.scrollHeight;
+
+        if (heroBottom <= 1000 && !atBottom) {
           strip.classList.add('strip-visible');
         } else {
           strip.classList.remove('strip-visible');
