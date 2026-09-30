@@ -1450,7 +1450,7 @@ IMAGE POSITION
   }
 
   .header-cta-btn {
-    padding: 9px 16px;
+    padding: 8px 12px;
     font-size: 13px;
   }
 
@@ -1830,6 +1830,7 @@ IMAGE POSITION
 
   .conversation-matters-left {
     padding-right: 0;
+    margin-bottom: 28px;
   }
 
   .conversation-heading {
@@ -1844,8 +1845,7 @@ IMAGE POSITION
   }
 
   .conversation-actions {
-    flex-wrap: wrap;
-
+    flex-wrap: nowrap;
     margin-top: 20px;
   }
 
@@ -1945,7 +1945,6 @@ IMAGE POSITION
 
   .conversation-actions {
     align-items: stretch;
-    flex-direction: column;
   }
 
   .conversation-primary-btn,
@@ -2237,10 +2236,9 @@ IMAGE POSITION
   /* pull card out of absolute so it flows below image */
   .webinar-speaker-card {
     position: relative;
-    bottom: auto;
+    bottom: 30px;
     left: auto;
     transform: none;
-    margin-top: 16px;
     width: 100%;
     max-width: 400px;
     white-space: normal;
@@ -2359,11 +2357,6 @@ IMAGE POSITION
     max-width: 320px;
   }
 
-  .masterclass-countdown-strip {
-    position: sticky;
-    top: 0;
-  }
-
   .countdown-inner {
     min-height: auto;
 
@@ -2446,7 +2439,7 @@ IMAGE POSITION
   }
 
   .header-logo-badruka img {
-    height: 36px;
+    height: 28px;
   }
 
   .header-logo-member img {
@@ -2467,11 +2460,12 @@ IMAGE POSITION
   }
 
   .webinar-tag {
-    font-size: 11px;
+    font-size: 9px;
+    letter-spacing: 1px;
   }
 
   .webinar-speaker-img {
-    width: 220px;
+    width: 320px;
   }
 
   /* strip: 1 column on mobile (grid-template-columns, not flex) */
