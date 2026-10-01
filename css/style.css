@@ -1381,7 +1381,7 @@ IMAGE POSITION
 ==================================================*/
 
 .webinar-cta-wrap {
-  padding: 28px 0 32px;
+  padding: 28px 0 60px;
 }
 
 .webinar-cta-btn {
@@ -1499,6 +1499,8 @@ IMAGE POSITION
   padding: 90px 0 90px;
   background: #ffffff;
   overflow: hidden;
+  border-top: 1px solid #e2e8f0cc;
+  border-bottom: 1px solid #e2e8f0cc;
 }
 
 .conversation-matters-wrapper {
