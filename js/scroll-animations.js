@@ -40,7 +40,7 @@
     blurUp: function (d) {
       d = d || 32;
       return [
-        { opacity: 0, transform: 'translate3d(0,' + d + 'px,0)', filter: 'blur(8px)' },
+        { opacity: 0, transform: 'translate3d(0,' + d + 'px,0)', filter: 'blur(6px)' },
         { opacity: 1, transform: 'translate3d(0,0,0)', filter: 'blur(0px)' }
       ];
     },
@@ -56,9 +56,9 @@
       return isMobile()
         ? fx.up(48)
         : [
-            { opacity: 0, transform: 'translate3d(70px,0,0)' },
-            { opacity: 1, transform: 'translate3d(0,0,0)' }
-          ];
+          { opacity: 0, transform: 'translate3d(70px,0,0)' },
+          { opacity: 1, transform: 'translate3d(0,0,0)' }
+        ];
     },
     // accent lines: width grow
     line: function () {
@@ -88,7 +88,7 @@
     // Header + Hero
     { s: '.site-header', fx: 'down', d: 20, dur: 700, base: 0 },
     { s: '.webinar-tag', fx: 'up', d: 24, dur: 800, base: 100 },
-    { s: '.webinar-heading', fx: 'blurUp', d: 36, dur: 1000, base: 200 },
+    { s: '.webinar-heading', fx: 'blurUp', d: 36, dur: 300, base: 200 },
     { s: '.webinar-desc', fx: 'up', d: 28, dur: 900, base: 350 },
     { s: '.webinar-speaker', fx: 'scale', d: 48, dur: 1100, base: 350 },
     { s: '.webinar-strip-item', fx: 'up', d: 28, dur: 800, base: 450, stagger: 120 },
