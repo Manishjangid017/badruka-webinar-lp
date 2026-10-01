@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank You | Badruka School of Management</title>
+    <title>You're In! | Badruka School of Management</title>
     <link rel="icon" href="images/favicon.webp" sizes="32x32" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+    <!-- ===== Tracking (same as your old thank-you page) ===== -->
     <!--Bing-->
     <script>
       (function (w, d, t, r, u) {
@@ -50,7 +50,6 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-KKS7F6DF');
     </script>
-    <!-- End Google Tag Manager -->
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16741304463"></script>
@@ -94,371 +93,514 @@
     <!-- End Meta Pixel Code -->
 
     <style>
-      /* ── Variables (same as LP) ── */
       :root {
-        --primary: #f16625;
-        --primary-dark: #d4551a;
-        --heading: #1b1b1b;
-        --text: #444444;
-        --border: #ececec;
+        --orange: #ff5200;
+        --orange-dark: #e84a00;
+        --navy: #131a35;
+        --text: #3b4560;
+        --muted: #64708a;
+        --cream: #faf8f4;
+        --gold-bg: #fff8e1;
+        --gold-border: #fbeab5;
+        --line: #e8ebf0;
       }
 
-      * {
+      *,
+      *::before,
+      *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      html {
-        scroll-behavior: smooth;
+      html,
+      body {
+        min-height: 100%;
       }
 
       body {
-        font-family: 'Inter', sans-serif;
-        background: #fefbf7;
+        font-family:
+          'Inter',
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+        background: var(--cream);
         color: var(--text);
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
+        -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
       }
 
       a {
         text-decoration: none;
-        transition: all 0.3s ease;
+        color: inherit;
       }
 
-      /* ── HEADER ── */
-      .ty-header {
-        background: #fff;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-        padding: 18px 0;
-        text-align: center;
+      button {
+        font-family: inherit;
+        cursor: pointer;
       }
 
-      .ty-header img {
-        height: 47px;
-        width: auto;
-        display: inline-block;
-      }
-
-      /* ── MAIN CONTENT ── */
-      .ty-main {
-        flex: 1;
+      /* ===== PAGE ===== */
+      .page {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 60px 20px;
-        position: relative;
+        padding: 52px 20px;
         overflow: hidden;
       }
 
-      /* Subtle decorative background circle */
-      .ty-main::before {
+      /* soft glow behind the card (orange left, grey bottom-right) */
+      .page::before,
+      .page::after {
         content: '';
         position: absolute;
-        width: 700px;
-        height: 700px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(241, 102, 37, 0.07) 0%, transparent 70%);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         pointer-events: none;
         z-index: 0;
       }
 
-      .ty-card {
+      .page::before {
+        width: 560px;
+        height: 560px;
+        left: 50%;
+        top: 38%;
+        transform: translate(-95%, -50%);
+        background: radial-gradient(circle, rgba(255, 82, 0, 0.1) 0%, rgba(255, 82, 0, 0) 68%);
+      }
+
+      .page::after {
+        width: 520px;
+        height: 520px;
+        right: -140px;
+        bottom: -160px;
+        background: radial-gradient(circle, rgba(120, 130, 160, 0.14) 0%, rgba(120, 130, 160, 0) 68%);
+      }
+
+      /* ===== CARD ===== */
+      .card {
         position: relative;
         z-index: 1;
-        background: #fff;
-        border-radius: 24px;
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.07);
-        padding: 60px 56px;
-        max-width: 600px;
         width: 100%;
+        max-width: 672px;
+        background: #fff;
+        border: 1px solid #fbf1cf;
+        border-radius: 22px;
+        padding: 40px 32px 48px;
         text-align: center;
+        box-shadow:
+          0 2px 0 rgba(251, 234, 181, 0.6),
+          0 22px 50px rgba(120, 100, 40, 0.1);
       }
 
-      /* ── CHECK ICON ── */
-      .ty-icon {
-        width: 88px;
-        height: 88px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #fff5ee 0%, #ffe8d6 100%);
-        border: 2px solid rgba(241, 102, 37, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 32px;
-        animation: pop-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-      }
-
-      .ty-icon i {
-        font-size: 42px;
-        color: var(--primary);
-        line-height: 1;
-      }
-
-      @keyframes pop-in {
-        from {
-          transform: scale(0.5);
-          opacity: 0;
-        }
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      /* ── TAG LINE ── */
-      .ty-tag {
+      /* ===== BADGE ===== */
+      .badge {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        background: rgba(241, 102, 37, 0.08);
-        color: var(--primary);
-        font-family: 'Inter', sans-serif;
-        font-size: 12px;
+        gap: 6px;
+        background: #fff7e0;
+        border: 1px solid #fbe3a4;
+        color: var(--orange);
+        font-size: 9.5px;
         font-weight: 700;
-        letter-spacing: 1.5px;
+        letter-spacing: 0.5px;
         text-transform: uppercase;
-        padding: 6px 14px;
-        border-radius: 30px;
-        margin-bottom: 20px;
-      }
-
-      .ty-tag .dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--primary);
-        box-shadow: 0 0 8px var(--primary);
-      }
-
-      /* ── HEADING ── */
-      .ty-heading {
-        font-family: 'Satoshi', sans-serif;
-        font-size: 42px;
-        font-weight: 700;
-        line-height: 1.1;
-        color: var(--heading);
-        margin-bottom: 16px;
-      }
-
-      .ty-heading span {
-        color: var(--primary);
-      }
-
-      /* ── BODY TEXT ── */
-      .ty-body {
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        color: #555;
-        line-height: 1.8;
-        margin-bottom: 36px;
-      }
-
-      /* ── DIVIDER ── */
-      .ty-divider {
-        width: 48px;
-        height: 3px;
-        background: var(--primary);
-        border-radius: 30px;
-        margin: 0 auto 32px;
-      }
-
-      /* ── BACK BUTTON ── */
-      .ty-back-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 15px 36px;
-        background: var(--primary);
-        color: #fff;
-        border-radius: 10px;
-        font-family: 'Inter', sans-serif;
-        font-size: 15px;
-        font-weight: 600;
-        box-shadow: 0 12px 30px rgba(241, 102, 37, 0.3);
-        transition: all 0.3s ease;
-      }
-
-      .ty-back-btn i {
-        font-size: 16px;
-        transition: transform 0.3s ease;
-      }
-
-      .ty-back-btn:hover {
-        background: var(--primary-dark);
-        color: #fff;
-        transform: translateY(-2px);
-        box-shadow: 0 18px 40px rgba(241, 102, 37, 0.35);
-      }
-
-      .ty-back-btn:hover i {
-        transform: translateX(-4px);
-      }
-
-      /* ── HIGHLIGHTS STRIP ── */
-      .ty-highlights {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 24px;
-        margin-top: 40px;
-        padding-top: 32px;
-        border-top: 1px solid var(--border);
-        flex-wrap: wrap;
-      }
-
-      .ty-highlight-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .ty-highlight-item strong {
-        font-family: 'Satoshi', sans-serif;
-        font-size: 22px;
-        font-weight: 700;
-        color: var(--primary);
+        padding: 6px 11px;
+        border-radius: 999px;
         line-height: 1;
       }
 
-      .ty-highlight-item span {
-        font-family: 'Inter', sans-serif;
-        font-size: 12px;
-        color: #888;
-        text-align: center;
+      .badge i {
+        font-size: 11px;
       }
 
-      .ty-highlight-sep {
-        width: 1px;
-        height: 36px;
-        background: var(--border);
+      /* ===== HEADING ===== */
+      .title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 18px;
+        font-size: 42px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+        color: var(--navy);
+      }
+
+      .title .party {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        display: inline-block;
+        transform: translateY(-4px);
+      }
+
+      .title .party-fallback {
+        font-size: 34px;
+        line-height: 1;
+        transform: translateY(-4px);
+      }
+
+      .lead {
+        margin: 14px auto 0;
+        max-width: 360px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--text);
+      }
+
+      /* ===== EVENT STRIP ===== */
+      .event {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+        background: var(--gold-bg);
+        border: 1px solid var(--gold-border);
+        border-radius: 12px;
+        padding: 14px 16px;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .event-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        white-space: nowrap;
+      }
+
+      .event-item i {
+        color: var(--orange);
+        font-size: 12px;
+      }
+
+      .event-item.zoom {
+        color: #0b2a6f;
+      }
+
+      .event-item.zoom i {
+        color: #0b2a6f;
+      }
+
+      .event .sep {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: #f3b25a;
         flex-shrink: 0;
       }
 
-      /* ── FOOTER ── */
-      .ty-footer {
-        background: #1c3d90;
-        padding: 22px 20px;
-        text-align: center;
+      /* ===== ACTIONS ===== */
+      .actions {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 0.72fr 1fr;
+        gap: 8px;
       }
 
-      .ty-footer-logo {
-        display: inline-flex;
+      .btn {
+        display: flex;
         align-items: center;
         justify-content: center;
-        background: #fff;
-        padding: 6px 14px;
-        border-radius: 6px;
-        margin-bottom: 14px;
+        gap: 10px;
+        min-height: 48px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        line-height: 1.5;
+        text-align: center;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
       }
 
-      .ty-footer-logo img {
-        height: 34px;
-        width: auto;
-        display: inline-block;
-      }
-
-      .ty-footer-address {
-        font-family: 'Inter', sans-serif;
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.7);
-        line-height: 1.7;
-        margin-bottom: 10px;
-      }
-
-      .ty-footer-copy {
-        font-family: 'Inter', sans-serif;
+      .btn i {
         font-size: 12px;
-        color: rgba(255, 255, 255, 0.5);
-        margin: 0;
+        flex-shrink: 0;
       }
 
-      /* ── RESPONSIVE ── */
-      @media (max-width: 767px) {
-        .ty-header img {
-          height: 40px;
+      .btn-primary {
+        background: var(--orange);
+        color: #fff;
+        border: 1px solid var(--orange);
+        box-shadow: 0 10px 22px rgba(255, 82, 0, 0.3);
+        justify-content: space-between;
+      }
+
+      .btn-primary i {
+        color: #ffd9c4;
+      }
+
+      .btn-primary span {
+        flex: 1;
+      }
+
+      .btn-primary:hover {
+        background: var(--orange-dark);
+        transform: translateY(-1px);
+      }
+
+      .btn-outline {
+        background: #fff;
+        color: #2b3552;
+        border: 1px solid var(--line);
+        justify-content: space-between;
+      }
+
+      .btn-outline i {
+        color: #4a5573;
+      }
+
+      .btn-outline span {
+        flex: 1;
+      }
+
+      .btn-outline:hover {
+        border-color: #cfd5e0;
+        transform: translateY(-1px);
+      }
+
+      .btn:focus-visible,
+      .copy-link:focus-visible,
+      .read-more:focus-visible {
+        outline: 2px solid var(--navy);
+        outline-offset: 2px;
+      }
+
+      .copy-link {
+        margin-top: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: none;
+        border: 0;
+        color: var(--orange);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .copy-link i {
+        font-size: 10px;
+      }
+
+      .copy-link:hover {
+        text-decoration: underline;
+      }
+
+      /* ===== NEXT STEP ===== */
+      .divider {
+        height: 1px;
+        background: var(--line);
+        margin: 34px 0 24px;
+        border: 0;
+      }
+
+      .next-label {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #5b6785;
+        text-align: left;
+      }
+
+      .next-label .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+
+      .article {
+        margin-top: 12px;
+        text-align: left;
+        background: #f8fafc;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 16px 16px 15px;
+      }
+
+      .article .kicker {
+        font-size: 11px;
+        color: var(--text);
+      }
+
+      .article h2 {
+        margin-top: 8px;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--navy);
+      }
+
+      .article p {
+        margin-top: 8px;
+        font-size: 10.5px;
+        line-height: 1.6;
+        color: var(--muted);
+        /* shows just the first line, like the design */
+        max-height: 1.6em;
+        overflow: hidden;
+      }
+
+      .read-more {
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        color: var(--orange);
+      }
+
+      .read-more i {
+        font-size: 9px;
+        transition: transform 0.2s ease;
+      }
+
+      .read-more:hover i {
+        transform: translateX(3px);
+      }
+
+      /* toast */
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translate(-50%, 20px);
+        background: var(--navy);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 10px 16px;
+        border-radius: 999px;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+        z-index: 10;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
+      /* ===== TABLET ===== */
+      @media (max-width: 991px) {
+        .page::before {
+          transform: translate(-80%, -50%);
+        }
+      }
+
+      /* ===== MOBILE ===== */
+      @media (max-width: 575px) {
+        .page {
+          padding: 28px 14px;
+          align-items: flex-start;
         }
 
-        .ty-card {
-          padding: 40px 28px;
+        .page::before {
+          width: 380px;
+          height: 380px;
+          transform: translate(-70%, -50%);
+        }
+
+        .card {
+          padding: 30px 18px 34px;
           border-radius: 18px;
         }
 
-        .ty-icon {
-          width: 74px;
-          height: 74px;
-          margin-bottom: 24px;
+        .badge {
+          font-size: 8.5px;
+          padding: 6px 9px;
+          letter-spacing: 0.3px;
+          max-width: 100%;
+          white-space: normal;
+          line-height: 1.3;
+          text-align: center;
         }
 
-        .ty-icon i {
+        .title {
           font-size: 34px;
+          gap: 8px;
         }
 
-        .ty-heading {
-          font-size: 32px;
+        .title .party {
+          width: 32px;
+          height: 32px;
         }
 
-        .ty-body {
-          font-size: 15px;
-          margin-bottom: 28px;
+        .lead {
+          font-size: 13.5px;
         }
 
-        .ty-highlights {
-          gap: 16px;
+        .event {
+          flex-direction: column;
+          gap: 8px;
+          padding: 14px;
         }
 
-        .ty-highlight-item strong {
+        .event .sep {
+          display: none;
+        }
+
+        .actions {
+          grid-template-columns: 1fr;
+        }
+
+        .btn {
+          min-height: 50px;
+          font-size: 11px;
+        }
+
+        .divider {
+          margin: 28px 0 22px;
+        }
+
+        .article h2 {
           font-size: 20px;
         }
 
-        .ty-highlight-sep {
-          display: none;
+        .article p {
+          font-size: 11px;
         }
       }
 
-      @media (max-width: 480px) {
-        .ty-card {
-          padding: 32px 20px;
+      @media (max-width: 360px) {
+        .title {
+          font-size: 30px;
         }
 
-        .ty-heading {
-          font-size: 28px;
+        .card {
+          padding: 26px 14px 30px;
         }
+      }
 
-        .ty-body {
-          font-size: 14px;
-        }
-
-        .ty-back-btn {
-          width: 100%;
-          justify-content: center;
-          padding: 14px 24px;
-        }
-
-        .ty-highlights {
-          gap: 12px;
-          margin-top: 28px;
-          padding-top: 24px;
-        }
-
-        .ty-highlight-item strong {
-          font-size: 18px;
-        }
-
-        .ty-highlight-item span {
-          font-size: 11px;
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
         }
       }
     </style>
@@ -474,64 +616,167 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- ── HEADER ── -->
-    <header class="ty-header">
-      <a href="index.html">
-        <img src="images/LOGO.png" alt="Badruka School of Management" />
-      </a>
-    </header>
-
-    <!-- ── MAIN ── -->
-    <main class="ty-main">
-      <div class="ty-card">
-        <!-- Check icon -->
-        <div class="ty-icon">
-          <i class="bi bi-check-lg"></i>
+    <main class="page">
+      <section class="card" aria-labelledby="ty-title">
+        <div class="badge">
+          <i class="bi bi-stars" aria-hidden="true"></i>
+          Seat confirmed · Masterclass pass issued
         </div>
 
-        <!-- Tag -->
-        <div class="ty-tag">
-          <span class="dot"></span>
-          Submission Received
-        </div>
+        <h1 class="title" id="ty-title">You're in! 🎉</h1>
 
-        <!-- Heading -->
-        <h1 class="ty-heading">
-          Thank You for<br />
-          <span>Reaching Out!</span>
-        </h1>
-
-        <!-- Divider -->
-        <div class="ty-divider"></div>
-
-        <!-- Body -->
-        <p class="ty-body">
-          Our admissions team will get in touch with you shortly.<br />
-          In the meantime, feel free to explore everything<br />
-          BSM has to offer.
+        <p class="lead">
+          Thank you for registering. Your Zoom link is on its way to your inbox. Add the event to your calendar so you
+          don't miss it:
         </p>
-      </div>
+
+        <div class="event">
+          <span class="event-item"><i class="bi bi-calendar3" aria-hidden="true"></i>Wed, 30 Sept 2026</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span class="event-item"><i class="bi bi-clock" aria-hidden="true"></i>5:00–6:00 PM IST</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span class="event-item zoom"><i class="bi bi-camera-video" aria-hidden="true"></i>Live on Zoom</span>
+        </div>
+
+        <div class="actions">
+          <a id="gcalBtn" class="btn btn-primary" href="#" target="_blank" rel="noopener">
+            <i class="bi bi-calendar-event" aria-hidden="true"></i>
+            <span>Add to Calendar</span>
+            <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+          </a>
+
+          <button id="icsBtn" class="btn btn-outline" type="button">
+            <i class="bi bi-download" aria-hidden="true"></i>
+            <span>Download .ics (Apple / Outlook)</span>
+          </button>
+        </div>
+
+        <button id="copyBtn" class="copy-link" type="button">
+          <i class="bi bi-copy" aria-hidden="true"></i>
+          Copy Zoom Link &amp; Meeting Details
+        </button>
+
+        <hr class="divider" />
+
+        <div class="next-label"><span class="dot"></span>Next step</div>
+
+        <article class="article">
+          <p class="kicker">While you wait, read Dr. Rastogi's article:</p>
+          <h2>"Is an MBA Still Worth It in the AI Era?"</h2>
+          <p>
+            A deep dive by Dr. Shailesh Rastogi, Director of Badruka School of Management, on why judgement, strategic
+            decision-making, and human leadership matter more than ever in the AI era.
+          </p>
+          <a id="articleLink" class="read-more" href="#" target="_blank" rel="noopener">
+            Read Dr. Rastogi's article <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          </a>
+        </article>
+      </section>
     </main>
 
-    <!-- ── FOOTER ── -->
-    <footer class="ty-footer">
-      <div class="ty-footer-logo">
-        <img src="images/footer-logo.png" alt="Badruka School of Management" />
-      </div>
-      <p class="ty-footer-address">Dabilpur Village, Medchal, Hyderabad, Telangana 501401</p>
-      <p class="ty-footer-copy">© 2026 Badruka School of Management. All Rights Reserved.</p>
-    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <script>
-      // Auto-download the brochure PDF on every page load (including refresh)
-      window.addEventListener('load', function () {
+      /* ===== EDIT THESE ===== */
+      var EVENT = {
+        title: 'Masterclass | Badruka School of Management',
+        description: 'Live masterclass on Zoom with Badruka School of Management.',
+        // 5:00-6:00 PM IST = 11:30-12:30 UTC
+        startUTC: '20260930T113000Z',
+        endUTC: '20260930T123000Z',
+        zoomLink: 'https://zoom.us/j/your-meeting-id',
+        articleLink: 'https://your-site.com/blog/is-an-mba-still-worth-it-in-the-ai-era',
+      };
+
+      var gcalUrl =
+        'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' +
+        encodeURIComponent(EVENT.title) +
+        '&dates=' +
+        EVENT.startUTC +
+        '/' +
+        EVENT.endUTC +
+        '&details=' +
+        encodeURIComponent(EVENT.description + '\nJoin: ' + EVENT.zoomLink) +
+        '&location=' +
+        encodeURIComponent(EVENT.zoomLink);
+
+      document.getElementById('gcalBtn').href = gcalUrl;
+      document.getElementById('articleLink').href = EVENT.articleLink;
+
+      function toast(msg) {
+        var t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        clearTimeout(toast._t);
+        toast._t = setTimeout(function () {
+          t.classList.remove('show');
+        }, 2200);
+      }
+
+      /* Download .ics */
+      document.getElementById('icsBtn').addEventListener('click', function () {
+        var ics = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Badruka School of Management//Masterclass//EN',
+          'CALSCALE:GREGORIAN',
+          'METHOD:PUBLISH',
+          'BEGIN:VEVENT',
+          'UID:' + EVENT.startUTC + '@badruka-masterclass',
+          'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
+          'DTSTART:' + EVENT.startUTC,
+          'DTEND:' + EVENT.endUTC,
+          'SUMMARY:' + EVENT.title,
+          'DESCRIPTION:' + EVENT.description + '\\nJoin: ' + EVENT.zoomLink,
+          'LOCATION:' + EVENT.zoomLink,
+          'URL:' + EVENT.zoomLink,
+          'END:VEVENT',
+          'END:VCALENDAR',
+        ].join('\r\n');
+
+        var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
         var a = document.createElement('a');
-        a.href = 'images/bsm-lp-file.pdf';
-        a.download = 'bsm-lp-file.pdf';
+        a.href = url;
+        a.download = 'bsm-masterclass.ics';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+        setTimeout(function () {
+          URL.revokeObjectURL(url);
+        }, 1000);
+        toast('Calendar file downloaded');
+      });
+
+      /* Copy Zoom link + details */
+      document.getElementById('copyBtn').addEventListener('click', function () {
+        var text = EVENT.title + '\nWed, 30 Sept 2026 | 5:00–6:00 PM IST\nLive on Zoom: ' + EVENT.zoomLink;
+
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+            toast('Zoom link & details copied');
+          } catch (e) {
+            toast('Could not copy. Please copy manually.');
+          }
+          document.body.removeChild(ta);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            toast('Zoom link & details copied');
+          }, fallback);
+        } else {
+          fallback();
+        }
       });
     </script>
   </body>

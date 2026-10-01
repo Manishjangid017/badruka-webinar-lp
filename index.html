@@ -27,7 +27,7 @@
     </noscript>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css?v=3" />
-
+    <link rel="stylesheet" href="css/scroll-animations.css" />
     <!--DTC-->
     <script type="text/javascript">
       var npf_d = 'https://application.bsm.edu.in';
@@ -601,63 +601,16 @@
       </div>
     </section>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const leadersSwiper = new Swiper('.leadersSwiper', {
-      loop: true,
-      speed: 900,
-      spaceBetween: 20,
-      slidesPerView: 4,
-      grabCursor: true,
-      centeredSlides: false,
-      watchOverflow: true,
-      observer: true,
-      observeParents: true,
-      preloadImages: false,
-      lazy: true,
-      navigation: {
-        nextEl: '.leaders-next',
-        prevEl: '.leaders-prev',
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-
-      keyboard: {
-        enabled: true,
-        onlyInViewport: true,
-      },
-
-      breakpoints: {
-        0: {
-          slidesPerView: 1,
-          spaceBetween: 16,
-        },
-
-        576: {
-          slidesPerView: 2,
-          spaceBetween: 18,
-        },
-
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-
-        992: {
-          slidesPerView: 3,
-          spaceBetween: 22,
-        },
-
-        1200: {
-          slidesPerView: 4,
-          spaceBetween: 20,
-        },
-      },
-    });
+    (function () {
+      var d = document.documentElement;
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!('IntersectionObserver' in window) || !Element.prototype.animate) return;
+      d.classList.add('sa-on');
+      setTimeout(function () { if (!window.__saReady) d.classList.remove('sa-on'); }, 4000);
+    })();
   </script>
+  <script src="js/scroll-animations.js" defer></script>
   <script>
     (function () {
       const targetDate = new Date('2026-09-30T11:30:00Z').getTime();
@@ -693,7 +646,6 @@
       setInterval(updateCountdown, 1000);
     })();
   </script>
-
   <script defer>
     // Load scripts on interaction
     function load3rdPartyScripts() {

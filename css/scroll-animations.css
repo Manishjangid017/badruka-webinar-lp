@@ -1,0 +1,57 @@
+/*==================================================
+  SCROLL ANIMATIONS — initial state only
+  - Sirf opacity use hoti hai (layout, size, position kuch nahi badalta)
+  - html.sa-on tabhi lagta hai jab JS + IntersectionObserver + WAAPI available ho
+    aur user ne "reduce motion" on nahi kiya ho
+  - JS jab element ko reveal karta hai tab .sa-in class lagti hai
+==================================================*/
+
+html.sa-on
+  :is(
+    /* header + hero */
+    .site-header,
+    .webinar-tag,
+    .webinar-heading,
+    .webinar-desc,
+    .webinar-speaker,
+    .webinar-strip-item,
+    .webinar-cta-wrap,
+
+    /* why this conversation matters */
+    .conversation-eyebrow,
+    .conversation-heading,
+    .conversation-actions,
+    .conversation-description p,
+    .conversation-proof-card,
+
+    /* section heads (outcomes + audience) */
+    .outcomes-eyebrow,
+    .outcomes-title,
+    .outcomes-line,
+    .audience-sub,
+
+    /* outcomes */
+    .outcome-img,
+    .outcome-card,
+    .outcomes-cta,
+
+    /* speaker */
+    .speaker-heading,
+    .speaker-text,
+    .speaker-line,
+    .speaker-image,
+
+    /* audience */
+    .audience-card,
+
+    /* bottom CTA card */
+    .pgdm-card,
+    .pgdm-content h3,
+    .pgdm-content p,
+    .pgdm-btn,
+    .pgdm-student
+  ):not(.sa-in) {
+  opacity: 0;
+}
+
+/* Reduce motion: gate script me sa-on lagta hi nahi, to kuch hide nahi hota */
